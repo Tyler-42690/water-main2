@@ -8,6 +8,7 @@ const GradeSelection = ({ route, navigation }) =>
 
     const handleGradeSelection = () =>
     {
+        console.log("true")
         if (activityName === "Jar Test")
         {
             var pdfPath =require('../../assets/pdfs/JarTestHandout.pdf')
@@ -39,7 +40,7 @@ const GradeSelection = ({ route, navigation }) =>
                     style={styles.button}
                     onPress={handleGradeSelection}
                 >
-                    <Text style={styles.gradeTitle}>Grade 5</Text>
+                    <Text style={styles.gradeTitle}>Middle School</Text>
                 </TouchableOpacity>
             </View>
 
@@ -48,35 +49,7 @@ const GradeSelection = ({ route, navigation }) =>
                     style={styles.button}
                     onPress={handleGradeSelection}
                 >
-                    <Text style={styles.gradeTitle}>Grade 6</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={{ padding: 20 }}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={handleGradeSelection}
-                >
-                    <Text style={styles.gradeTitle}>Grade 7</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={{ padding: 20 }}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={handleGradeSelection}
-                >
-                    <Text style={styles.gradeTitle}>Grade 8</Text>
-                </TouchableOpacity>
-            </View>
-
-
-            <View style={{ padding: 20 }}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={handleGradeSelection}
-                >
-                    <Text style={styles.gradeTitle}>Grade 9-12</Text>
+                    <Text style={styles.gradeTitle}>High School</Text>
                 </TouchableOpacity>
             </View>
 
@@ -104,7 +77,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         fontSize: 17,
         fontWeight: 'bold',
-        color: 'white'
+        color: 'black'
 
     }
 })

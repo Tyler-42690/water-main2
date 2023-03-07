@@ -16,6 +16,15 @@ const Activitydetailsscreen = ({ route, navigation }) =>
         // navigation.navigate('PdfViewer');
     }
 
+    if(name == "Jar Test"){
+        console.log("JarTest")
+    }else if(name == "DIY Water Filter")
+    {
+        console.log("DIY Water Filter")
+    }
+
+
+
     return (
         
             <View style={styles.scrollContainer}>

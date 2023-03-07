@@ -8,8 +8,6 @@ import Register from "./screens/Register"
 import Navbar from "./navbar"
 
 
-
-
 function HomeScreen({ navigation,route }) {
 
   //const {Role} = route.params;

@@ -105,24 +105,12 @@ const Buttons = [
   },
   {
     id: 1,
-    grades: '5',
+    grades: 'Middle School',
   },
   {
     id: 2,
-    grades: '6',
-  },
-  {
-    id: 3,
-    grades: '7',
-  },
-  {
-    id: 4,
-    grades: '8',
-  },
-  {
-    id: 5,
-    grades: '9-12',
-  },
+    grades: 'High School',
+  }
 ]
 
 
