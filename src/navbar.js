@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator()
 const headerColor = 'white'
 const headerTextColor = 'red'
 // const iconActiveColor = '#04f260'
-const iconActiveColor = global.secondary
+const iconActiveColor = '#89CFF0'
 const iconNotActiveColor = '#d6d6d6'
 const iconDimension = 30
 
