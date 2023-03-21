@@ -6,7 +6,7 @@ import InstructorHomeScreen from './screens/InstructorHomeScreen'
 import Standards from './screens/Standards'
 import ActivityStack from './ActivityStack'
 import ActivityStackStudent from './ActivityStackStudent'
-import Settings from './screens/Settings'
+import SettingsStack from './SettingsStack'
 import { ThemeConsumer } from 'react-native-elements'
 
 const Tab = createBottomTabNavigator()
@@ -141,7 +141,7 @@ const Navbar = ({navigation,route}) =>
                             color: headerTextColor
                         }
                     }}
-                    component={Settings} />
+                    component={SettingsStack} />
             </Tab.Navigator>
         )
     }else{

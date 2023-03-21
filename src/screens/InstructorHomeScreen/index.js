@@ -8,190 +8,88 @@ import CardItem from '../../components/CardItem';
 
 const initData = [
   {
-    id: 2,
-    activityName: 'Jar Test',
-    imagePath: require('../../assets/Jartest.jpeg'),
-    description: 'There are many ways in which wastewater is treated, all of which are extremely important for ensuring safe drinking water. In this activity students will explore the Jar Test which is a test used to estimate the minimum coagulant dose required to achieve certain water quality goals.',
+    id: 7,
+    activityName: 'Water Pump',
+    imagePath: require('../../assets/DIY_Water_Test.jpg'),
+    description: 'Construct a set of connected bottles, visualize water moving to equilibrium, and watch the water stop flowing when the water level is equal.',
     grade: 0,
     // pdfPath: require('/Users/leonardoflorero/Developer/ReactNativeProjects/NpxProjects/waterpal/assets/pdfs/JarTestHandout.pdf'),
-    pdfPath: require('../../assets/pdfs/JarTestHandout.pdf'),
-    videoPath: {uri:"https://youtu.be/9mplI5qEhxk"}
   },
-  {
-    id: 1,
-    activityName: 'Water Quality Parameters',
-    imagePath: require('../../assets/AcitvityImages/WaterQuality.png'),
-    description: 'Testing the quality of water is an extremely important aspect of water and wastewater management. In this activity students will learn about the parameters that need to be met in order for water to pass various quality tests.',
-    grade: 0,
-    // pdfPath: require('/Users/leonardoflorero/Developer/ReactNativeProjects/NpxProjects/waterpal/assets/pdfs/WaterQualityParametersHandout.pdf'),
-    pdfPath: require('../../assets/pdfs/WaterQualityParametersHandout.pdf'),
-    videoPath: {uri:"https://youtu.be/9mplI5qEhxk"}
-  },
-  // {
-  //   id: 3,
-  //   activityName: 'Water Pumps',
-  //   imagePath: require('../assets/WaterPumps.jpeg'),
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit scelerisque posuere.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc erat est, dignissim eget mauris ac,venenatis lacinia augue.Mauris sodales.',
-  //   grade: 5,
-  // },
-  // {
-  //   id: 4,
-  //   activityName: 'Water Pumps 7',
-  //   imagePath: require('../assets/WaterPumps.jpeg'),
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit scelerisque posuere.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc erat est, dignissim eget mauris ac,venenatis lacinia augue.Mauris sodales.',
-  //   grade: 7,
-  // },
-  // {
-  //   id: 5,
-  //   activityName: 'Jar Test 9',
-  //   imagePath: require('../assets/Jartest.jpeg'),
-  //   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit scelerisque posuere.Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Nunc erat est, dignissim eget mauris ac,venenatis lacinia augue.Mauris sodales.',
-  //   grade: 9,
-  // },
-];
-
-const secondData = [
-  {
-    id: 5,
-    activityName: 'Jar Test',
-    imagePath: require('../../assets/Jartest.jpeg'),
-    description: 'There are many ways in which wastewater is treated, all of which are extremely important for ensuring safe drinking water. In this activity students will explore the Jar Test which is a test used to estimate the minimum coagulant dose required to achieve certain water quality goals.',
-    grade: 5,
-  },
-]
-
-
-const thirdData = [
   {
     id: 6,
-    activityName: 'Water Quality Parameters',
-    imagePath: require('../../assets/AcitvityImages/WaterQuality.png'),
-    description: 'Testing the quality of water is an extremely important aspect of water and wastewater management. In this activity students will learn about the parameters that need to be met in order for water to pass various quality tests.',
-    grade: 6,
+    activityName: 'Water Tower',
+    imagePath: require('../../assets/DIY_Water_Test.jpg'),
+    description: 'To enable students to calculate the water pressure at different levels in the graduated cylinder by measuring the distance that water sprays out of holes at various heights.',
+    grade: 0,
+    // pdfPath: require('/Users/leonardoflorero/Developer/ReactNativeProjects/NpxProjects/waterpal/assets/pdfs/JarTestHandout.pdf'),
   },
-];
-
-const fourthData = [
-  {
-    id: 4,
-    activityName: 'Water Quality Parameters',
-    imagePath: require('../../assets/AcitvityImages/WaterQuality.png'),
-    description: 'Testing the quality of water is an extremely important aspect of water and wastewater management. In this activity students will learn about the parameters that need to be met in order for water to pass various quality tests.',
-    grade: 8,
-  },
-]
-
-const fifthData = [
   {
     id: 5,
-    activityName: 'Water Quality Parameters',
-    imagePath: require('../../assets/AcitvityImages/WaterQuality.png'),
-    description: 'Testing the quality of water is an extremely important aspect of water and wastewater management. In this activity students will learn about the parameters that need to be met in order for water to pass various quality tests.',
-    grade: 9,
+    activityName: 'DIY Watershed',
+    imagePath: require('../../assets/DIY_Water_Test.jpg'),
+    description: 'Understand how a watershed operates in our everyday surroundings by using a watershed model made from simple materials.',
+    grade: 0,
+    // pdfPath: require('/Users/leonardoflorero/Developer/ReactNativeProjects/NpxProjects/waterpal/assets/pdfs/JarTestHandout.pdf'),
+  },
+  {
+    id: 4,
+    activityName: 'Gas Transfer',
+    imagePath: require('../../assets/DIY_Water_Test.jpg'),
+    description: 'Understand how treatment works using transfer of gas to treat wastewater and surface water using various chemicals to maintain safe levels of organic matter in water. ',
+    grade: 0,
+    // pdfPath: require('/Users/leonardoflorero/Developer/ReactNativeProjects/NpxProjects/waterpal/assets/pdfs/JarTestHandout.pdf'),
   },
   {
     id: 3,
-    activityName: 'Jar Test',
-    imagePath: require('../../assets/Jartest.jpeg'),
-    description: 'There are many ways in which wastewater is treated, all of which are extremely important for ensuring safe drinking water. In this activity students will explore the Jar Test which is a test used to estimate the minimum coagulant dose required to achieve certain water quality goals.',
-    grade: 12,
-  },
-]
-
-const Buttons = [
-  {
-    id: 0,
-    grades: 'All',
-  },
-  {
-    id: 1,
-    grades: 'Middle School',
+    activityName: 'DIY Water Filter',
+    imagePath: require('../../assets/DIY_Water_Test.jpg'),
+    description: 'Construct a simple water filter and run dirty water through the filter to show the before and after of the water sample.  ',
+    grade: 0,
+    // pdfPath: require('/Users/leonardoflorero/Developer/ReactNativeProjects/NpxProjects/waterpal/assets/pdfs/JarTestHandout.pdf'),
   },
   {
     id: 2,
-    grades: 'High School',
+    activityName: 'Jar Test',
+    imagePath: require('../../assets/Jartest.jpeg'),
+    description: 'There are many ways in which wastewater is treated, all of which are extremely important for ensuring safe drinking water. In this activity students will explore the Jar Test which is a test used to estimate the minimum coagulant dose required to achieve certain water quality goals.',
+    grade: 'Middle School',
+    // pdfPath: require('/Users/leonardoflorero/Developer/ReactNativeProjects/NpxProjects/waterpal/assets/pdfs/JarTestHandout.pdf'),
+    pdfPath: require('../../assets/pdfs/JarTestHandout.pdf'),
+  },
+  {
+    id: 1,
+    activityName: 'Water Quality Parameters',
+    imagePath: require('../../assets/AcitvityImages/WaterQuality.png'),
+    description: 'Testing the quality of water is an extremely important aspect of water and wastewater management. In this activity students will learn about the parameters that need to be met in order for water to pass various quality tests.',
+    grade: 0,
+
+    // pdfPath: require('/Users/leonardoflorero/Developer/ReactNativeProjects/NpxProjects/waterpal/assets/pdfs/WaterQualityParametersHandout.pdf'),
+    pdfPath: require('../../assets/pdfs/WaterQualityParametersHandout.pdf'),
   }
 ]
 
-
-
-
-
-
 const InstructorHomeScreen = ({ navigation ,route}) => 
 {
-
   //const {Role} = route.params;
   //console.log(Role);
 
+  console.log("2")
   const [DATA, setData] = useState(initData);
   var filteredData = [];
 
+/*
   const resetData = () => 
   {
     setData(initData);
   }
-
-
-  const SelectionButton = (props) =>
-  {
-    const handleGradeSelection = (grade) =>
-    {
-
-      if (grade === 'All')
-      {
-        setData(initData)
-      }
-
-      if (grade === '5')
-      {
-        setData(secondData)
-      }
-
-      if (grade === '6')
-      {
-        setData(thirdData)
-      }
-
-      if (grade === '7')
-      {
-        // setData(thirdData)
-      }
-
-      if (grade === '8')
-      {
-        setData(fourthData)
-      }
-
-      if (grade === '9-12')
-      {
-        setData(fifthData)
-      }
-    }
-
-    return (
-      <View style={{ alignSelf: 'center', paddingRight: 20, paddingLeft: 20 }}>
-        <TouchableOpacity
-          style={{ backgroundColor: global.ternary, width: 110, height: 35, alignSelf: 'center', justifyContent: 'center', borderRadius: 15 }}
-          onPress={() => handleGradeSelection(props.grades)}
-        //Adding the () => prevents the component from calling the functions 
-        //when the component is initially loaded
-        >
-          <Text
-            style={{ color: global.secondary, fontWeight: 'bold', fontSize: 15, alignSelf: 'center' }}
-          >
-            Grade: {props.grades}
-          </Text>
-        </TouchableOpacity>
-      </View>
-    )
-  }
-
+*/
   const renderItem = ({ item }) => (
+
     <CardItem
       activityName={item.activityName}
       imagePath={item.imagePath}
       description={item.description}
+      Experiment_Duration={item.Experiment_Duration}
     // grade={item.grade}
     // pdfPath={item.pdfPath}
     // videoPath={item.videoPath}
@@ -204,7 +102,6 @@ const InstructorHomeScreen = ({ navigation ,route}) =>
 
   return (
     <SafeAreaView>
-      <View style={{ width: '100%', height: '95%' }}>
         {/* <FlatList
           data={Buttons}
           renderItem={renderButton}
@@ -218,7 +115,6 @@ const InstructorHomeScreen = ({ navigation ,route}) =>
           keyExtractor={item => item.id}
           style={homeStyles.overallContainer}
         />
-      </View>
     </SafeAreaView>
   );
 

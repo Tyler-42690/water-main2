@@ -1,5 +1,5 @@
 import React ,{useState}from 'react'
-import {  View, Text ,Image,StatusBar ,TouchableOpacity} from 'react-native';
+import {  View, Text ,Image,StatusBar ,TouchableOpacity,StyleSheet} from 'react-native';
 import { wpxToDp,hpxToDp } from '../../utils/stylesKits';
 import { Icon,Input ,Button,} from 'react-native-elements'
 import axios from 'axios';
@@ -55,8 +55,7 @@ const ResetPassword = () =>
   
   
       <View>
-        <Button
-        buttonStyle={{width:"100%",borderRadius: 20,marginTop:20}}
+        <Button buttonStyle={{borderRadius: 20,marginTop:10}}
         title="Reset Password"
         onPress={() => {
           console.log(useremail)
@@ -86,3 +85,28 @@ const ResetPassword = () =>
 };
 
 export default ResetPassword;
+
+const styles = StyleSheet.create({
+  header: {
+      alignSelf: 'center',
+      paddingBottom: 20,
+      paddingTop: 20,
+      fontWeight: 'bold',
+      fontSize: 20
+  },
+  button: {
+      width: '80%',
+      height: 60,
+      backgroundColor: global.primary,
+      alignSelf: 'center',
+      borderRadius: 15,
+      justifyContent: 'center'
+  },
+  gradeTitle: {
+      alignSelf: 'center',
+      fontSize: 17,
+      fontWeight: 'bold',
+      color: 'black'
+
+  }
+})

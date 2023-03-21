@@ -1,72 +1,152 @@
 import React from 'react';
-import { View, StyleSheet, SafeAreaView, Text, ScrollView, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, StyleSheet, SafeAreaView, Text, ScrollView, Image, TouchableOpacity, ImageBackground,FlatList,Platform,PermissionsAndroid,Button, TouchableHighlight } from 'react-native';
 import Video from 'react-native-video';
 import YoutubePlayer from 'react-native-youtube-iframe';
+import * as MediaLibrary from 'expo-media-library';
+import * as FileSystem from 'expo-file-system';
+import * as Permissions from 'expo-permissions';
+import { shareAsync } from 'expo-sharing';
 
 const Activitydetailsscreen = ({ route, navigation }) =>
 {
-    const { name, grade, pdfPath, videoPath } = route.params
 
-    const myPath = pdfPath
+    const { name, grade, pdfPath, videoPath,Experiment_Duration,Expectations,Objectives,Delivery,Procedures,Assessment } = route.params
 
-    const handlePdf = () => 
-    {
-        // navigation.navigate('PdfViewer', { myPath: "pdfPath" });
-        navigation.navigate('PdfViewer', { myPath: pdfPath });
-        // navigation.navigate('PdfViewer');
+
+    const downloadFromUrl = async() => {
+
+
+        console.log('clicked');
+
+        const filename = name + ".pdf"
+        const result =  await FileSystem.downloadAsync(pdfPath,FileSystem.documentDirectory + filename);
+      
+        console.log(result);
+      
+        save(result.uri, filename, result.headers["Content-Type"]);
+      };
+      
+      const save = async (uri, filename, mimetype) => {
+        if (Platform.OS === "android") {
+          const permissions = await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
+          if (permissions.granted) {
+            const base64 = await FileSystem.readAsStringAsync(uri, { encoding: FileSystem.EncodingType.Base64 });
+            await FileSystem.StorageAccessFramework.createFileAsync(permissions.directoryUri, filename, mimetype)
+              .then(async (uri) => {
+                await FileSystem.writeAsStringAsync(uri, base64, { encoding: FileSystem.EncodingType.Base64 });
+              })
+              .catch(e => console.log(e));
+          
+            } 
+          }
+      };
+
+    console.log(Experiment_Duration)
+    var gradename = "Middle School"
+
+    if (grade == 6){
+        gradename = "Middle School"
+    }else{
+        gradename = "High School"
     }
 
-    if(name == "Jar Test"){
-        console.log("JarTest")
-    }else if(name == "DIY Water Filter")
-    {
-        console.log("DIY Water Filter")
-    }
+
+            return (
+
+                <ScrollView style={styles.scrollContainer}  overScrollMode={"never"}>
+                    <View>
+                   <YoutubePlayer
+                        webViewStyle={ {opacity:0.99} }
+                        height={300}
+                        play={true}
+                        videoId = {videoPath}
+                    />
+                    </View>
+
+                    <Text style={styles.titleText}>{name}</Text>
+                    <Text style={styles.gradeText}>Grade: {gradename}</Text>
+                    <Text style={styles.gradeText}>Experiment Duration: {Experiment_Duration} Minutes</Text>
 
 
-
-    return (
-        
-            <View style={styles.scrollContainer}>
-                {/*<Video controls={true} source={{uri:"https://youtu.be/9mplI5qEhxk"}} paused={true} // Can be a URL or a local file.
-                    ref={(ref) =>
-                    {
-                        this.player = ref
-                    }}                                      // Store reference
-                    onBuffer={this.onBuffer}                // Callback when remote video is buffering
-                    onError={this.videoError}               // Callback when video cannot be loaded
-                    style={styles.videoContainer}
-                />*/}
-                <View>
-               <YoutubePlayer
-                    height={300}
-                    play={true}
-                    videoId={'KRgRbjw2dIM'}
-                />
-                </View>
-                <Text style={styles.titleText}>{name}</Text>
-                <Text style={styles.gradeText}>Grade: {grade}</Text>
-                <View style={styles.descriptionContainer}>
-                    <Text style={styles.detailsText} >Details</Text>
+                    <View style={styles.descriptionContainer}>
+                    <Text style={styles.detailsText} >Expectations</Text>
                     <Text style={styles.descriptionText}>
-                        Wastewater treatment is of the utmost importance due to the fact that much of the wastewater
-                        generated is released into rivers that provide the drinking water in our daily life. When wastewater
-                        treatment is not done properly it can lead to possible water shortages caused by contamination. In this activity students will learn about jar tests which are
-                        tests that stimulate the process of coagulation and flocculation with chemical admixtures in order to remove the
-                        unwanted contents from wastewater. At the end of this activity students will know how to determine the
-                        optimum dosage and appropriate chemical admixtures.
+                        {Expectations}
                     </Text>
-                </View>
-                <Text style={styles.attachmentsText}>Attachments</Text>
-                <TouchableOpacity style={styles.pdfImageContainer} onPress={handlePdf}>
-                    <Image style={styles.pdfImage} source={require('../../assets/PDF.png')} resizeMode='contain' />
-                </TouchableOpacity>
-            </View>
+                    </View>
 
-    );
-}
+                    <View style={styles.descriptionContainer}>
+                    <Text style={styles.detailsText}>Sample Data/Tables if Needed</Text>
+                    <Text style={styles.descriptionText}>
+                        N/A  
+                    </Text>
+                    </View>
+                    
+                    <View style={styles.descriptionContainer}>
+                    <Text style={styles.detailsText} >Context For Learnining</Text>
+                    <Text style={styles.descriptionText}>
+                        {Objectives}
+                    </Text>
+                    </View>
+
+                    <View style={styles.descriptionContainer}>
+                    <Text style={styles.detailsText} >Instructional Delivery</Text>
+
+                    <Text style={styles.descriptionText}>
+                        Materials:
+                    </Text>
+
+                    <Text style={styles.descriptionText}>
+                        {Delivery}
+                        {'\n'}
+                    </Text>
+                    <Text style={styles.descriptionText}>
+                        Procedures:
+                    </Text>
+                    <Text style={styles.descriptionText}>
+                        {Procedures}
+                        {'\n'}
+                    </Text>
+                    </View>
+
+                    <View style={styles.descriptionContainer}>
+                    <Text style={styles.detailsText} >Assessment</Text>
+                    <Text style={styles.descriptionText}>
+                        Question
+                    </Text>
+                    <Text style={styles.descriptionText}>
+                    {Assessment}
+                    </Text>
+                    </View>
+
+                   <Text style={styles.attachmentsText}>Attachments</Text>
+                   <TouchableOpacity style = {styles.pdfImage}  onPress={downloadFromUrl}>
+                    <Image style = {styles.pdfImage}  source={require('../../assets/PDF.png')}/>
+                    </TouchableOpacity >
+                   <Text style={styles.descriptionText}>
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                        {'\n'}
+                    </Text>
+                </ScrollView>
+        ); 
+
+
+    /*
+                    */
+
+    }
 
 const styles = StyleSheet.create({
+
+    container:{
+        flex: 1,
+    },
     imageContainer: {
         width: '100%',
         top: 0,

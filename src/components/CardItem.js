@@ -1,5 +1,6 @@
 import { SafeAreaView, StyleSheet, Text, View, FlatList, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
+import { Button, ThemeConsumer} from 'react-native-elements';
 import React from 'react';
 
 const CardItem = (props) =>
@@ -18,11 +19,38 @@ const CardItem = (props) =>
         //     params: { name: props.activityName, grade: props.grade, videoPath: props.videoPath, pdfPath: props.pdfPath },
         // });
     }
+    if (props.activityName == "Water Quality Parameters"){
+        return (
+            <View
+                style={styles.mainContainerend}
+                //onPress={handleActivitySelection}
+            >
+                <View style={styles.cardBody}>
+                    <ImageBackground source={props.imagePath} style={styles.imageContainer}>
+                        <View style={styles.activityTitleContainer}>
+                        </View>
+                    </ImageBackground>
+                    <View style={styles.bottomContainerend}>
+                        <Text style={styles.activityName}>{props.activityName}</Text>
+                        <Text style={styles.activityDescription}>{props.description}</Text>
+                        <TouchableOpacity style={styles.learnMoreBtn} onPress={handleActivitySelection}>
+                            <Button
+                            buttonStyle = {styles.btnText}
+                            title = 'Learn More'
+                            onPress={handleActivitySelection}
+                            />
+                        </TouchableOpacity>
+
+                    </View>
+                </View>
+            </View>
+        );
+    }
 
     return (
-        <TouchableOpacity
+        <View
             style={styles.mainContainer}
-            onPress={handleActivitySelection}
+            //onPress={handleActivitySelection}
         >
             <View style={styles.cardBody}>
                 <ImageBackground source={props.imagePath} style={styles.imageContainer}>
@@ -33,11 +61,15 @@ const CardItem = (props) =>
                     <Text style={styles.activityName}>{props.activityName}</Text>
                     <Text style={styles.activityDescription}>{props.description}</Text>
                     <TouchableOpacity style={styles.learnMoreBtn} onPress={handleActivitySelection}>
-                        <Text style={styles.btnText}>Learn More</Text>
+                        <Button
+                        buttonStyle = {styles.btnText}
+                        title = 'Learn More'
+                        onPress={handleActivitySelection}
+                        />
                     </TouchableOpacity>
                 </View>
             </View>
-        </TouchableOpacity>
+        </View>
     );
 };
 
@@ -113,10 +145,29 @@ const styles = StyleSheet.create({
     btnText: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: 'white'
+        color: 'black'
+    },
+    bottomContainerend: {
+        width: '100%',
+        height: '50%',
+        // bottom: 5,
+        // borderBottomLeftRadius: 30,
+        // borderBottomRightRadius: 30,
+        justifyContent: 'flex-start',
+        backgroundColor: 'white', //#0e1b34
+        // alignSelf: 'center',
+        paddingLeft: 20,
+        paddingTop: 10,
+    },
+    mainContainerend: {
+        height: 610,
+        // justifyContent: 'center',
+        // backgroundColor: 'green',
+        backgroundColor: global.primary,
+        // borderBottomWidth: 1
     }
 })
 
 
-
+//<Text style={styles.btnText}>Learn More</Text>
 

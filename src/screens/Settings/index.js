@@ -8,17 +8,18 @@ const Settings = ({ route, navigation }) =>
 {
     return (
         <SafeAreaView>
-            <View style={{alignItems: 'center'}}>
-                 <Button
-    
-                    buttonStyle={{width:"100%",borderRadius: 20,marginTop:20,alignItems: 'center'}}
-                    title="Reset Passward"
+
+            <View style={{
+                alignItems: 'center',
+                    }}>
+                 <Button buttonStyle={{borderRadius: 20,marginTop:10}}
+                    title="Reset Password"
                     onPress={() => {    
                         console.log()
                         navigation.navigate('ResetPassword')
                     }}
                 />
-            </View>
+                </View>
         </SafeAreaView>
     );
 };
