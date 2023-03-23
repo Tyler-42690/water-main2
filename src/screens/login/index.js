@@ -1,15 +1,40 @@
-import React ,{useState}from 'react'
-import {  View, Text ,Image,StatusBar ,TouchableOpacity} from 'react-native';
+import * as React from 'react'
+import { useState } from 'react';
+import { SafeAreaView,StyleSheet,Text, View,Image,StatusBar ,TouchableOpacity,TouchableWithoutFeedback} from 'react-native';
 import { wpxToDp,hpxToDp } from '../../utils/stylesKits';
 import { Icon,Input ,Button,} from 'react-native-elements'
 import axios from 'axios';
+import Modal from 'react-native-modal'
+//import { Modal } from 'react-native-paper';
 //import Toast from 'teaset/components/Toast/Toast';
+
+const popuplist = [
+  {
+    id: 1,
+    name: 'task'
+
+  },
+  {
+    id: 2,
+    name: 'Message'
+    
+  },
+  {
+    id: 3,
+    name: 'Note'
+
+  },
+]
+
 export default function Login({ navigation }) {
   const [useremail,setUseremail] = useState('')
   const [password, setPassword] = useState('')
+  
+  const [isModalVisible,setIsModalVisible] = React.useState(false);
+  const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
   return (
-    <View style={{
+    <SafeAreaView style={{
       alignItems: 'center',
       }}>
       
@@ -58,11 +83,12 @@ export default function Login({ navigation }) {
 
     <View>
       <Button
+
       buttonStyle={{width:"100%",borderRadius: 20,marginTop:20}}
       title="Login"
       onPress={() => {
-        console.log(useremail)
-        console.log(password)
+        //console.log(useremail)
+       // console.log(password)
         //navigation.navigate('Home')
         axios.get("http://47.89.252.2:5000/login.php?!="+useremail+"|"+password).then(
           response => {
@@ -70,8 +96,8 @@ export default function Login({ navigation }) {
                 console.log('success')
                 navigation.navigate('Home',{Role: response.data['role']})
               }else {
-    
-              navigation.navigate('Tutorial')
+                handleModal();
+                console.log("error");
             }
           },
           error => {
@@ -81,7 +107,32 @@ export default function Login({ navigation }) {
        
     }}
       />
-    
+
+
+
+
+    <Modal isVisible={isModalVisible}>
+      <View style={{ backgroundColor: 'white',borderRadius: 20,}}>
+        <Text style = {{
+            alignContent: 'center',
+            alignSelf: 'center',
+            fontSize: 16,
+            fontWeight: 'bold',
+            color: 'black',
+          }}>
+          Username or password is invalid
+        </Text>
+        <Button
+        buttonStyle={{width:"50%" ,borderRadius: 20,marginTop:20,marginBottom:5,alignSelf:'center'}}
+         title="Ok" 
+         onPress={handleModal}
+         />
+      </View>
+    </Modal>
+
+
+
+
       <Button
       buttonStyle={{width:"100%" ,borderRadius: 20,marginTop:20}}
       title="Creat Account"
@@ -103,6 +154,29 @@ export default function Login({ navigation }) {
       </TouchableOpacity>
     </View>
     
-    </View>
+    </SafeAreaView>
   )
+
+  
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: "400",
+    textAlign: "center",
+  },
+  separator: {
+    marginVertical: 30,
+    height: 1,
+    width: "80%",
+  },
+});
