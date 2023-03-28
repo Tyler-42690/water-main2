@@ -263,7 +263,7 @@ const Navbar = ({navigation,route}) =>
                             color: headerTextColor
                         }
                     }}
-                    component={Settings} />
+                    component={SettingsStack} />
             </Tab.Navigator>
         )
 
