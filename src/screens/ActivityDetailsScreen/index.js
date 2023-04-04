@@ -6,6 +6,7 @@ import * as MediaLibrary from 'expo-media-library';
 import * as FileSystem from 'expo-file-system';
 import * as Permissions from 'expo-permissions';
 import { shareAsync } from 'expo-sharing';
+import WebView from 'react-native-webview';
 
 const Activitydetailsscreen = ({ route, navigation }) =>
 {

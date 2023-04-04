@@ -15,7 +15,7 @@ const ActivityStack = (navigation,route) =>
 {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="InstructorHome" options={{ headerShown: true, title: 'WaterPAL Teacher', headerTitleStyle: { color: global.primary } }} component={InstructorHomeScreen} />
+      <Stack.Screen name="InstructorHome" options={{ headerShown: true, title: 'WaterPAL Teacher', headerTitleStyle: { color: 'white'}, headerStyle:{backgroundColor: '#89CFF0'}}} component={InstructorHomeScreen} />
       <Stack.Screen name="GradeSelection" options={{ headerShown: true, headerBackTitle: 'Back', headerTintColor: global.primary, headerTitle: '', headerTitleStyle: { color: 'red' } }} component={GradeSelection} />
       <Stack.Screen name="ActivityDetails" options={{ headerShown: true, headerBackTitle: 'Back', headerTintColor: global.primary, headerTitle: 'Activity Details', headerTitleStyle: { color: global.primary } }} component={Activitydetailsscreen} />
       <Stack.Screen name="PdfViewer" options={{ headerShown: true, headerBackTitle: 'Back', headerTintColor: global.primary, headerTitle: '', headerTitleStyle: { color: 'red' } }} component={PdfViewer} />

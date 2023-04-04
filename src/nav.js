@@ -6,6 +6,8 @@ import Login from "./screens/login"
 import Tutoria from "./screens/Tutorial"
 import Register from "./screens/Register"
 import Navbar from "./navbar"
+import {Provider} from 'react-redux';
+import {Store}from './redux/store';
 
 
 function HomeScreen({ navigation,route }) {
@@ -30,6 +32,8 @@ const Stack = createStackNavigator();
 
 function Nav() {
   return (
+
+    <Provider store={Store}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
@@ -38,6 +42,7 @@ function Nav() {
         <Stack.Screen name="Register" options={{ headerShown: true, title: 'Create Account' }} component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }
 

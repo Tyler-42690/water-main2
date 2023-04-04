@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Dimensions, View, TouchableOpacity, Text } from 'react-native';
+import WebView from 'react-native-webview';
+
 //import Pdf from 'react-native-pdf';
 
 const Tutorial = ({ route, navigation }) =>
@@ -10,17 +12,10 @@ const Tutorial = ({ route, navigation }) =>
         navigation.replace("Login")
     }
 
+    return(
 
-    return (
-        <View style={styles.container}>
-            <TouchableOpacity style={{ backgroundColor: global.primary, height: 50, width: 200, borderRadius: 15, top: -10, justifyContent: 'center' }}
-                onPress={handlePress}
-            >
-                <Text style={{ color: 'white', alignSelf: 'center', justifyContent: 'center' }}>
-                    Proceed to WaterPAL
-                </Text>
-            </TouchableOpacity>
-        </View>
+            //<WebView source={{ uri: 'http://47.89.252.2:5000/DIY_Water_Filter.html' }} />
+    <WebView source = {{uri:'https://dochub.com/palaci25/oGZeMNnwXOGlaYeVQvbrYd/sysconlab7-pdf?dt=f2KkbUGuxhScw5q_cbQw'}}/>
     )
 }
 

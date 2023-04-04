@@ -4,9 +4,9 @@ import { SafeAreaView,StyleSheet,Text, View,Image,StatusBar ,TouchableOpacity,To
 import { wpxToDp,hpxToDp } from '../../utils/stylesKits';
 import { Icon,Input ,Button,} from 'react-native-elements'
 import axios from 'axios';
-import Modal from 'react-native-modal'
-//import { Modal } from 'react-native-paper';
-//import Toast from 'teaset/components/Toast/Toast';
+import Modal from 'react-native-modal';
+import {useSelector,useDispatch } from 'react-redux';
+import {setEmail,setPassword} from '../../redux/actions';
 
 const popuplist = [
   {
@@ -27,13 +27,18 @@ const popuplist = [
 ]
 
 export default function Login({ navigation }) {
-  const [useremail,setUseremail] = useState('')
-  const [password, setPassword] = useState('')
+
+  const dispatch = useDispatch();
+  const {Email,Password} = useSelector((state)=>state.userReducer);
+
+  const [useremail,setLoginEmail] = useState('');
+  const [userpassword, setLoginPassword] = useState('');
   
   const [isModalVisible,setIsModalVisible] = React.useState(false);
   const handleModal = () => setIsModalVisible(() => !isModalVisible);
 
   return (
+
     <SafeAreaView style={{
       alignItems: 'center',
       }}>
@@ -52,7 +57,7 @@ export default function Login({ navigation }) {
     <Input
       placeholder='Input Email'
       inputStyle={{color:"#333"}}
-      onChangeText={text => setUseremail(text)}
+      onChangeText={text => setLoginEmail(text)}
       leftIcon={
         <Icon
           name='email'
@@ -68,7 +73,7 @@ export default function Login({ navigation }) {
     <Input
       placeholder='Input Password'
       secureTextEntry={true}
-      onChangeText={text => setPassword(text)}
+      onChangeText={text => setLoginPassword(text)}
       leftIcon={
         <Icon
           name='lock'
@@ -90,19 +95,24 @@ export default function Login({ navigation }) {
         //console.log(useremail)
        // console.log(password)
         //navigation.navigate('Home')
-        axios.get("http://47.89.252.2:5000/login.php?!="+useremail+"|"+password).then(
+        axios.get("http://47.89.252.2:5000/login.php?!="+useremail+"|"+userpassword).then(
           response => {
               if(response.data['success']===1){
+
+                dispatch(setEmail(useremail));
+                dispatch(setPassword(userpassword));
+                console.log(Email)
+                console.log(Password);
+
                 console.log('success')
                 navigation.navigate('Home',{Role: response.data['role']})
               }else {
+                console.log(Email)
+                console.log(Password);
                 handleModal();
                 console.log("error");
             }
           },
-          error => {
-            console.log('error');
-          }
         )
        
     }}
