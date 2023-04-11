@@ -3,88 +3,32 @@ import { useNavigation } from '@react-navigation/core';
 import { Button, ThemeConsumer} from 'react-native-elements';
 import React from 'react';
 
-const CardItem = (props) =>
+const StudentCardItem = (props) =>
 {
     const navigation = useNavigation()
 
     const handleActivitySelection = () =>
     {
 
-        if(props.activityName == "ThingSpeak Data"){
+        if(props.activityName == "WaterTalk"){
             console.log(props.activityName)
             navigation.navigate('HomeScreen', {
-                screen: 'ThingsSpeak',
+                screen: 'WaterTalk',
                 params: { activityName: props.activityName },
             });
         }else
         {
             navigation.navigate('HomeScreen', {
-                screen: 'GradeSelection',
+                screen: 'WaterPal',
                 params: { activityName: props.activityName },
             });
         }
 
     }
-    if (props.activityName == "Water Quality Parameters"){
-        return (
-            <View
-                style={styles.mainContainerend}
-                //onPress={handleActivitySelection}
-            >
-                <View style={styles.cardBody}>
-                    <ImageBackground source={props.imagePath} style={styles.imageContainer}>
-                        <View style={styles.activityTitleContainer}>
-                        </View>
-                    </ImageBackground>
-                    <View style={styles.bottomContainerend}>
-                        <Text style={styles.activityName}>{props.activityName}</Text>
-                        <Text style={styles.activityDescription}>{props.description}</Text>
-                        <TouchableOpacity style={styles.learnMoreBtn} onPress={handleActivitySelection}>
-                            <Button
-                            buttonStyle = {styles.btnText}
-                            title = 'Learn More'
-                            onPress={handleActivitySelection}
-                            />
-                        </TouchableOpacity>
-
-                    </View>
-                </View>
-            </View>
-        );
-    }
-
-    if (props.activityName == "ThingSpeak Data"){
-        return (
-            <View
-                style={styles.mainContainer}
-                //onPress={handleActivitySelection}
-            >
-                <View style={styles.cardBody}>
-                    <ImageBackground source={props.imagePath} style={styles.imageContainer}>
-                        <View style={styles.activityTitleContainer}>
-                        </View>
-                    </ImageBackground>
-                    <View style={styles.bottomContainerend}>
-                        <Text style={styles.activityName}>{props.activityName}</Text>
-                        <Text style={styles.activityDescription}>{props.description}</Text>
-                        <TouchableOpacity style={styles.learnMoreBtn} onPress={handleActivitySelection}>
-                            <Button
-                            buttonStyle = {styles.btnText}
-                            title = 'View Data!'
-                            onPress={handleActivitySelection}
-                            />
-                        </TouchableOpacity>
-
-                    </View>
-                </View>
-            </View>
-        );
-    }
 
     return (
         <View
             style={styles.mainContainer}
-            //onPress={handleActivitySelection}
         >
             <View style={styles.cardBody}>
                 <ImageBackground source={props.imagePath} style={styles.imageContainer}>
@@ -97,7 +41,7 @@ const CardItem = (props) =>
                     <TouchableOpacity style={styles.learnMoreBtn} onPress={handleActivitySelection}>
                         <Button
                         buttonStyle = {styles.btnText}
-                        title = 'Learn More'
+                        title = 'Play now!'
                         onPress={handleActivitySelection}
                         />
                     </TouchableOpacity>
@@ -107,7 +51,7 @@ const CardItem = (props) =>
     );
 };
 
-export default CardItem;
+export default StudentCardItem;
 
 
 
@@ -153,18 +97,23 @@ const styles = StyleSheet.create({
         // borderBottomRightRadius: 30,
         justifyContent: 'flex-start',
         backgroundColor: 'white', //#0e1b34
-        // alignSelf: 'center',
-        paddingLeft: 20,
+        alignSelf: 'center',
+        //paddingLeft: 20,
         paddingTop: 10,
     },
     activityName: {
         fontSize: 25,
         fontWeight: 'bold',
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
         // color: '#32ba00',
         color: global.primary,
     },
     activityDescription: {
-        paddingTop: 15,
+        paddingTop: 5,
+        alignSelf:'center'
     },
     learnMoreBtn: {
         // backgroundColor: '#32ba00',
@@ -174,7 +123,7 @@ const styles = StyleSheet.create({
         width: 140,
         alignItems: 'center',
         top: 20,
-        borderRadius: 25
+        borderRadius: 50
     },
     btnText: {
         fontSize: 20,
@@ -201,7 +150,3 @@ const styles = StyleSheet.create({
         // borderBottomWidth: 1
     }
 })
-
-
-//<Text style={styles.btnText}>Learn More</Text>
-
