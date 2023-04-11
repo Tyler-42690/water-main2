@@ -84,7 +84,7 @@ const About = () =>
             alignSelf: 'center',
             fontSize: 16,
             fontWeight: 'bold',
-            color: 'white',
+            color: 'black',
           }}>
           Go to FAQ
         </Text>

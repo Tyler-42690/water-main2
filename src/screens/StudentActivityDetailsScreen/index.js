@@ -100,7 +100,7 @@ const Activitydetailsscreen = ({ route, navigation }) =>
                         {Delivery}
                         {'\n'}
                     </Text>
-                    <Text style={styles.descriptionText}>
+                    <Text style={styles.detailsText}>
                         Procedures:
                     </Text>
                     <Text style={styles.descriptionText}>
@@ -111,9 +111,6 @@ const Activitydetailsscreen = ({ route, navigation }) =>
 
                     <View style={styles.descriptionContainer}>
                     <Text style={styles.detailsText} >Assessment</Text>
-                    <Text style={styles.descriptionText}>
-                        Question
-                    </Text>
                     <Text style={styles.descriptionText}>
                     {Assessment}
                     </Text>
