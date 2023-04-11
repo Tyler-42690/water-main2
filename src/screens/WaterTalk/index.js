@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 import { View, StyleSheet, ScrollView, Text,Button,TouchableOpacity} from 'react-native';
 import { Slider } from 'react-native-elements/dist';
 import { SliderBox } from 'react-native-image-slider-box';
@@ -8,18 +8,26 @@ import {WebView} from "react-native-webview"
 
 const WaterTalk = () =>
 {
+    /*
 
-    const onCheckTemp = () => {
-        console.log(true)
-        LinkPicked =  '<iframe width="500" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1984917/charts/1"></iframe>'
-    }
+    */
+    var[test,settest] = useState(0);
+    var[LinkPicked,setLinkPicked] = useState('<iframe width="500" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1984917/charts/1"></iframe>');
+    useEffect(() => {
+       switch(test){
+        case 1:setLinkPicked ('<iframe width="500" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1984917/charts/1"></iframe>') ;break;
+        case 2:setLinkPicked ('<iframe width="500" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1984917/charts/2"></iframe>') ;break;
+       }
+      },[test]);
+    
+
+
     const images = [
         require('../../assets/DIY_Water_Test.jpg'),
         require('../../assets/WaterPal.jpg'),
         require('../../assets/Jartest.jpeg'),
     ]
-    var LinkPicked =  '';
-
+    
 
 
     return(
@@ -38,17 +46,18 @@ const WaterTalk = () =>
             androidHardwareAccelerationDisabled={true}
             automaticallyAdjustContentInsets={false}
             style={{opacity:.99,overflow: 'hidden', height:250 , width: '100%' }}
-            source={{uri:LinkPicked}}
+            source={{html:LinkPicked}}
         />
+        
         <View style = {styles.TSContainer}>
                 <View style = {styles.fixToText}>
-                    <TouchableOpacity style= {styles.TSButton} onPress={onCheckTemp}>
+                    <TouchableOpacity style= {styles.TSButton} onPress={()=> {        settest(1);        console.log(test)}}>
                        <Text style = {styles.TSButtonText}>
                             View Temperature
                        </Text>
                     </TouchableOpacity>
                 
-                    <TouchableOpacity style= {styles.TSButton}>
+                    <TouchableOpacity style= {styles.TSButton} onPress={()=> {        settest(2);        console.log(test)}}>
                         <Text style = {styles.TSButtonText}>
                             Change Temperature
                         </Text>
