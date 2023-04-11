@@ -13,8 +13,8 @@ const Tab = createBottomTabNavigator()
 const headerColor = 'white'
 const headerTextColor = 'red'
 // const iconActiveColor = '#04f260'
-const iconActiveColor = '#89CFF0'
-const iconNotActiveColor = '#d6d6d6'
+const iconActiveColor = '#6b98f2'
+const iconNotActiveColor = '#33ACDE'
 const iconDimension = 30
 
 const Navbar = ({navigation,route}) =>
@@ -28,7 +28,7 @@ const Navbar = ({navigation,route}) =>
                 screenOptions={{
                     tabBarShowLabel: false,
                     tabBarStyle: {
-                        backgroundColor: '#0e1b34',
+                        backgroundColor: '#89CFF0',
                         position: 'absolute',
                         left: 0,
                         right: 0,
@@ -150,7 +150,7 @@ const Navbar = ({navigation,route}) =>
                 screenOptions={{
                     tabBarShowLabel: false,
                     tabBarStyle: {
-                        backgroundColor: '#0e1b34',
+                        backgroundColor: '#97f0d4',
                         position: 'absolute',
                         left: 0,
                         right: 0,
