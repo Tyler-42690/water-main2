@@ -11,6 +11,7 @@ const WaterTalk = () =>
     /*
 
     */
+    const Http = new XMLHttpRequest();
     var[test,settest] = useState(0);
     var[LinkPicked,setLinkPicked] = useState('<iframe width="500" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1984917/charts/1"></iframe>');
     useEffect(() => {
@@ -29,6 +30,8 @@ const WaterTalk = () =>
         require('../../assets/Jartest.jpeg'),
     ]
     
+    Http.open("GET",LinkPicked);
+    Http.send();
 
 
     return(
@@ -95,7 +98,8 @@ const WaterTalk = () =>
         <WebView
             androidHardwareAccelerationDisabled={true}
             automaticallyAdjustContentInsets={false}
-            style={{opacity:.99,overflow: 'hidden', height:250 , width: '100%' }}
+            style={{justifyContent: 'center',
+            alignItems: 'center',opacity:.99,overflow: 'hidden', height:250 , width: '100%'}}
             source={{uri:LinkPicked}}
         />
         </ScrollView>
@@ -106,6 +110,8 @@ const WaterTalk = () =>
 const styles = StyleSheet.create({
     ScrollViewContainer: {
         // backgroundColor: 'red',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: '100%',
         //top: 0,
         // bottom: 150,
@@ -116,6 +122,8 @@ const styles = StyleSheet.create({
         //backgroundColor: '#283654',
     },
     container:{
+        justifyContent: 'center',
+        alignItems: 'center',
         flex: 1,
         height:100
     },
@@ -146,7 +154,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: 'bold',
         color: 'black',
-        alignSelf: 'center',
+        alignItems: 'center',
 
     },
     fixToText: {
