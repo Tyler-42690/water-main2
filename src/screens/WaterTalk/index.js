@@ -17,6 +17,7 @@ const WaterTalk = () =>
        switch(test){
         case 1:setLinkPicked ('<iframe width="500" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1984917/charts/1"></iframe>') ;break;
         case 2:setLinkPicked ('<iframe width="500" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1984917/charts/2"></iframe>') ;break;
+        case 3:setLinkPicked ('<iframe width="500" height="300" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1984917/charts/3"></iframe>') ;break;
        }
       },[test]);
     
@@ -57,33 +58,33 @@ const WaterTalk = () =>
                        </Text>
                     </TouchableOpacity>
                 
-                    <TouchableOpacity style= {styles.TSButton} onPress={()=> {        settest(2);        console.log(test)}}>
+                    <TouchableOpacity style= {styles.TSButton} onPress={()=> {        settest(1);        console.log(test)}}>
                         <Text style = {styles.TSButtonText}>
                             Change Temperature
                         </Text>
                     </TouchableOpacity>
                 </View>
                 <View style = {styles.fixToText}>
-                    <TouchableOpacity style= {styles.TSButton}>
+                    <TouchableOpacity style= {styles.TSButton}onPress={()=> {        settest(2);        console.log(test)}}>
                        <Text style = {styles.TSButtonText}>
                             View pH
                        </Text>
                     </TouchableOpacity>
                 
-                    <TouchableOpacity style= {styles.TSButton}>
+                    <TouchableOpacity style= {styles.TSButton}onPress={()=> {        settest(2);        console.log(test)}}>
                         <Text style = {styles.TSButtonText}>
                             Change pH
                         </Text>
                     </TouchableOpacity>
                 </View>
                 <View style = {styles.fixToText}>
-                    <TouchableOpacity style= {styles.TSButton}>
+                    <TouchableOpacity style= {styles.TSButton}onPress={()=> {        settest(3);        console.log(test)}}>
                        <Text style = {styles.TSButtonText}>
                             View Humidity!
                        </Text>
                     </TouchableOpacity>
                 
-                    <TouchableOpacity style= {styles.TSButton}>
+                    <TouchableOpacity style= {styles.TSButton}onPress={()=> {        settest(3);        console.log(test)}}>
                         <Text style = {styles.TSButtonText}>
                             Change Humidity
                         </Text>
